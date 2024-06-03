@@ -27,17 +27,20 @@ Function header
 Declaration statement
 1) Only int and float data types are allowed
 2) ID must start with a letter and can be followed by any sequence of letters and numbers
+
 Ex: int x; 	or	float y;
 
 
 Assignment statement
 1) LHS must be a variable that has already been declared
 2) RHS must be a valid expression followed by a semicolon
+
 ex: x = 3+4-(4*9);
 
 
 If-else statement
 1) “if” followed by a set of parentheses that encloses a valid expression followed by “else” followed by a valid statement
+
 ex: 
 if(x>5)
     x = 2;
@@ -47,11 +50,13 @@ else
     
 Block statement
 1) { followed by a sequence of statements followed by }
+
 ex: {x=5; y=2;}
 
 
 For loop statement
 1) “for” followed by left parenthesis followed by a valid assignment statement with a semicolon followed by a valid expression followed by a semicolon followed by a valid assignment statement without a semicolon followed by a right parenthesis followed by a valid statement 
+
 ex:
 for(x = 5; x<20; x = x+1){
     y = 27;
