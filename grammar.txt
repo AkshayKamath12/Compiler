@@ -11,8 +11,8 @@ OP Tokens
       LPAR    (
       RPAR    )
       SEMI    ;
-      ID      // like in HW 1
-      NUM     // like in HW 1
+      ID     
+      NUM   
 
 keywords = {FOR, IF, ELSE, INT, FLOAT}
       
