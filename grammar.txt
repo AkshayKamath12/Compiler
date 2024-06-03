@@ -16,7 +16,7 @@ OP Tokens
 
 keywords = {FOR, IF, ELSE, INT, FLOAT}
       
-solution grammar with first+ sets in {}
+grammar with first+ sets in {}
 
 statement_list := statement statement_list {INT, FLOAT, ID, IF, LBRACE, FOR}  
                |  None {None}
