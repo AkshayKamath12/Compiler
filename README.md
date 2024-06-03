@@ -21,8 +21,7 @@ Expected program grammar:
 Function header
 1) Starts with void, int or float 
 2) Followed by sequence of references (sequence can be empty) to either int or float variables enclosed in parentheses. Ex: (int &x, float &y)
-3) Followed by sequence of statements enclosed in braces
-Look through the test cpp files for reference
+3) Followed by sequence of statements enclosed in braces. Look through the test cpp files for reference
 
 
 Declaration statement
