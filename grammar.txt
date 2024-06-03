@@ -1,0 +1,64 @@
+OP Tokens
+      MUL     *
+      PLUS    +
+      MINUS   -
+      DIV     /
+      ASSIGN  =
+      LT      <
+      EQ      ==
+      LBRACE  {
+      RBRACE  }
+      LPAR    (
+      RPAR    )
+      SEMI    ;
+      ID      // like in HW 1
+      NUM     // like in HW 1
+
+keywords = {FOR, IF, ELSE, INT, FLOAT}
+      
+solution grammar with first+ sets in {}
+
+statement_list := statement statement_list {INT, FLOAT, ID, IF, LBRACE, FOR}  
+               |  None {None}
+               |  “”   {RBRACE}
+
+statement := declaration_statement  {INT, FLOAT}
+          |  assignment_statement   {ID}
+          |  if_else_statement      {IF}
+          |  block_statement        {LBRACE}
+          |  for_loop_statement     {FOR}
+
+declaration_statement  := INT ID SEMI   {INT} 
+                       |  FLOAT ID SEMI {FLOAT} 
+
+assignment_statement := assignment_statement_base SEMI {ID}
+
+assignment_statement_base := ID ASSIGN expr {ID}
+
+if_else_statement := IF LPAR expr RPAR statement ELSE statement {IF}
+
+block_statement := LBRACE statement_list RBRACE {LBRACE}
+
+for_loop_statement := FOR LPAR assignment_statement expr SEMI assignment_statement_base RPAR statement {FOR}
+
+expr := comp expr2        {NUM, ID, LPAR}
+expr2 := EQ comp expr2    {EQ}
+      | “”                {SEMI, RPAR}
+
+comp := factor comp2      {NUM, ID, LPAR} 
+comp2 := LT factor comp2  {LT} 
+      | “”                {SEMI, RPAR, EQ}
+
+factor := term factor2         {NUM, ID, LPAR} 
+factor2 := PLUS term factor2   {PLUS}
+        | MINUS  term factor2  {MINUS}
+        | “”                   {SEMI, RPAR, EQ, LT}
+
+term := unit term2        {NUM, ID, LPAR} 
+term2 := DIV unit term2   {DIV}
+      | MUL  unit term2   {MUL}
+      | “”                {SEMI, RPAR, EQ, LT, PLUS, MINUS}
+
+unit := NUM {NUM}
+     |  ID  {ID} 
+     |  LPAR expr RPAR {LPAR} 
